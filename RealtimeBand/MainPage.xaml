@@ -45,7 +45,7 @@
                                FontWeight="SemiLight"
                                Margin="12,12,5,5"
                                FontSize="13"></TextBlock>
-                        <TextBlock Text="5984"
+                        <TextBlock Text="0"
                                x:Name="TotalStepsTextBlock"
                                Grid.Row="1"
                                Grid.Column="0"
@@ -174,5 +174,7 @@
         <Button x:Name="getData" Content="Get my data"
                 Click="getData_Click"
                 HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+        <Button x:Name="stopData" Content="Stop" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,40"
+                Click="stopData_Click"></Button>
     </Grid>
 </Page>

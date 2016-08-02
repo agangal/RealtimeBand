@@ -51,5 +51,12 @@ namespace RealtimeBand.Model
             get { return _bandSpeed; }
             set { _bandSpeed = value; }
         }
+
+        private static string _currentMotion;
+        public static string CurrentMotion
+        {
+            get { return _currentMotion; }
+            set { _currentMotion = value; }
+        }
     }
 }
