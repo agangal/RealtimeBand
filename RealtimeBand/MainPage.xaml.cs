@@ -32,8 +32,13 @@ namespace RealtimeBand
         public MainPage()
         {
             this.InitializeComponent();
+            
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            Debug.WriteLine("Leaving");
+        }
         private async void getData_Click(object sender, RoutedEventArgs e)
         {
             
@@ -43,7 +48,7 @@ namespace RealtimeBand
             {
                 await BandModel.BandClient.SensorManager.HeartRate.RequestUserConsentAsync();
             }
-            BandModel.BandClient.SensorManager.HeartRate.ReadingChanged += HeartRate_ReadingChanged;
+           
             try
             {
                 if (BandModel.BandClient.SensorManager.HeartRate.GetCurrentUserConsent() == UserConsent.Granted)
@@ -51,12 +56,34 @@ namespace RealtimeBand
                     SensorReading.IsHeartRateReadingAllowed = true;
                     await BandModel.BandClient.SensorManager.HeartRate.StartReadingsAsync();
                 }
+                await BandModel.BandClient.SensorManager.SkinTemperature.StartReadingsAsync();
+                await BandModel.BandClient.SensorManager.Distance.StartReadingsAsync();
+                await BandModel.BandClient.SensorManager.SkinTemperature.StartReadingsAsync();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
+
+            BandModel.BandClient.SensorManager.HeartRate.ReadingChanged += HeartRate_ReadingChanged;
+            BandModel.BandClient.SensorManager.SkinTemperature.ReadingChanged += SkinTemperature_ReadingChanged;
+            BandModel.BandClient.SensorManager.Distance.ReadingChanged += Distance_ReadingChanged;
+
             StartTimer();
+        }
+
+        private void Distance_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandDistanceReading> e)
+        {
+            //throw new NotImplementedException();
+            SensorReading.BandSpeed = e.SensorReading.Speed;
+            SensorReading.TotalDistance = e.SensorReading.TotalDistance;
+            Debug.WriteLine(e.SensorReading.CurrentMotion.ToString());
+        }
+
+        private void SkinTemperature_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandSkinTemperatureReading> e)
+        {
+            // throw new NotImplementedException();
+            SensorReading.BandTemperature = e.SensorReading.Temperature;
         }
 
         private void StartTimer()
@@ -79,7 +106,11 @@ namespace RealtimeBand
         {
             //throw new NotImplementedException();
             HeartRateTextBlock.Text = (SensorReading.HeartRateReading).ToString();
-            HeartRateReadingQualityTextBlock.Text = (SensorReading.HeartRateReadingQuality);
+            HeartRateReadingQualityTextBlock.Text = String.IsNullOrEmpty(SensorReading.HeartRateReadingQuality) ? "ACQUIRING" : (SensorReading.HeartRateReadingQuality);
+            SkinTemperatureTextBlock.Text = (SensorReading.BandTemperature != 0 ? SensorReading.BandTemperature : 0).ToString() + "°C";
+            SpeedTextBlock.Text = (SensorReading.BandSpeed).ToString() + "cm/s";
+            TotalStepsTextBlock.Text = (SensorReading.TotalDistance).ToString();
+
         }
 
         private void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)

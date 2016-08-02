@@ -29,6 +29,27 @@ namespace RealtimeBand.Model
             set { _heartRateReadingQuality = value; }
         }
 
+        private static double _bandTemperature;
+        public static double BandTemperature
+        {
+            get
+            {
+                return _bandTemperature;
+            }
+            set { _bandTemperature = value; }
+        }
 
+        private static long _totalDistance;
+        public static long TotalDistance
+        {
+            get { return _totalDistance; }
+            set { _totalDistance = value; }
+        }
+        private static double _bandSpeed;
+        public static double BandSpeed
+        {
+            get { return _bandSpeed; }
+            set { _bandSpeed = value; }
+        }
     }
 }

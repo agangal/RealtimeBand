@@ -99,7 +99,7 @@ namespace RealtimeBand
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            await BandModel.BandClient.SensorManager.HeartRate.StopReadingsAsync();
+            //await BandModel.BandClient.SensorManager.HeartRate.StopReadingsAsync();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
