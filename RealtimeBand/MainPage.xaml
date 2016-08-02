@@ -7,7 +7,171 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid Background="#090f37">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="REALTIME BAND"
+                           FontSize="30"
+                           Margin="12"
+                           FontWeight="SemiBold"
+                           CharacterSpacing="40"
+                           Foreground="White"></TextBlock>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <!--Total Steps-->
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="TOTAL STEPS"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,12,5,5"
+                               FontSize="13"></TextBlock>
+                        <TextBlock Text="5984"
+                               x:Name="TotalStepsTextBlock"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiBold" 
+                               Margin="12,5,5,5"
+                               FontSize="30"></TextBlock>
+                        <TextBlock Text="WALKING"
+                               Grid.Row="2" Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,5,5,5"
+                               FontSize="16"></TextBlock>
+                    </Grid>
+                    
+                    <!--Speed-->
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="SPEED"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,12,5,5"
+                               FontSize="13"></TextBlock>
+                        <TextBlock Text="6"
+                               x:Name="SpeedTextBlock"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiBold" 
+                               Margin="12,5,5,5"
+                               FontSize="30"></TextBlock>
+                        <TextBlock Text="MILES PER HOUR"
+                               Grid.Row="2" Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,5,5,5"
+                               FontSize="16"></TextBlock>
+                    </Grid>
+                    
+                    <!--Heart Rate-->
+                    <Grid Grid.Row="1" Grid.Column="0" Margin="0,6,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="HEART RATE"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,12,5,5"
+                               FontSize="13"></TextBlock>
+                        <TextBlock Text="67 BPM"
+                               x:Name="HeartRateTextBlock"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiBold" 
+                               Margin="12,5,5,5"
+                               FontSize="30"></TextBlock>
+                        <TextBlock Text="ACQUIRING"
+                                   x:Name="HeartRateReadingQualityTextBlock"
+                               Grid.Row="2" Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,5,5,5"
+                               FontSize="16"></TextBlock>
+                    </Grid>
+                    
+                    <!--Skin Temperature-->
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="SKIN TEMP"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,12,5,5"
+                               FontSize="13"></TextBlock>
+                        <TextBlock Text="26°C"
+                               x:Name="SkinTemperatureTextBlock"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiBold" 
+                               Margin="12,5,5,5"
+                               FontSize="30"></TextBlock>
+                        <TextBlock Text=""
+                               Grid.Row="2" Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,5,5,5"
+                               FontSize="16"></TextBlock>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        <Button x:Name="getData" Content="Get my data"
+                Click="getData_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
     </Grid>
 </Page>
