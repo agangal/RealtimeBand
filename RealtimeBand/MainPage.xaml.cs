@@ -71,12 +71,17 @@ namespace RealtimeBand
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex);
+                // Debug.WriteLine(ex);
+                AmbientLightTextBlock.Text = "--";
             }
 
             try
             {
                 BandModel.BandClient.SensorManager.AmbientLight.ReadingChanged += AmbientLight_ReadingChanged;
+            }
+            catch (Exception ex)
+            {
+                AmbientLightTextBlock.Text = "--";
             }
             try
             {
