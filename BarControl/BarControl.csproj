@@ -110,6 +110,7 @@
     <Compile Include="BarChartControl.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UIElementExtension.cs" />
     <EmbeddedResource Include="Properties\BarControl.rd.xml" />
   </ItemGroup>
   <ItemGroup>

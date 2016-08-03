@@ -8,7 +8,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="local:BarChartControl">
                     <Viewbox>
-                        <Grid Height="25" Width="250">
+                        <Grid x:Name="PART_Container"
+                            Height="25" Width="250">
                             
                         </Grid>
                     </Viewbox>
