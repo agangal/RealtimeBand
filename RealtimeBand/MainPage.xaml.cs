@@ -59,12 +59,25 @@ namespace RealtimeBand
                 await BandModel.BandClient.SensorManager.SkinTemperature.StartReadingsAsync();
                 await BandModel.BandClient.SensorManager.Distance.StartReadingsAsync();
                 await BandModel.BandClient.SensorManager.SkinTemperature.StartReadingsAsync();
+               // await BandModel.BandClient.SensorManager.AmbientLight.StartReadingsAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            try
+            {
+                await BandModel.BandClient.SensorManager.AmbientLight.StartReadingsAsync();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
 
+            try
+            {
+                BandModel.BandClient.SensorManager.AmbientLight.ReadingChanged += AmbientLight_ReadingChanged;
+            }
             try
             {
                 BandModel.BandClient.SensorManager.HeartRate.ReadingChanged += HeartRate_ReadingChanged;
@@ -90,6 +103,12 @@ namespace RealtimeBand
                 Debug.WriteLine(ex);
             }
             StartTimer();
+        }
+
+        private void AmbientLight_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandAmbientLightReading> e)
+        {
+            //throw new NotImplementedException();
+            SensorReading.AmbientLight = e.SensorReading.Brightness;
         }
 
         private void Distance_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandDistanceReading> e)
@@ -132,6 +151,7 @@ namespace RealtimeBand
             SpeedTextBlock.Text = (SensorReading.BandSpeed).ToString() + "cm/s";
             TotalStepsTextBlock.Text = (SensorReading.TotalDistance).ToString();
             motionType.Text = SensorReading.CurrentMotion;
+            AmbientLightTextBlock.Text = String.IsNullOrEmpty((SensorReading.AmbientLight).ToString()) ? "--" : (SensorReading.AmbientLight).ToString();
         }
 
         private void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)

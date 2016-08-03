@@ -168,6 +168,60 @@
                                Margin="12,5,5,5"
                                FontSize="16"></TextBlock>
                     </Grid>
+                    
+                    <!--Ambient Light -->
+                    <Grid Grid.Row="2" Grid.Column="0" Margin="0,6,0,0" Visibility="Collapsed">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Ambient Light"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,12,5,5"
+                               FontSize="13"></TextBlock>
+                        <TextBlock Text="--"
+                               x:Name="AmbientLightTextBlock"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiBold" 
+                               Margin="12,5,5,5"
+                               FontSize="30"></TextBlock>
+                        <TextBlock Text=""
+                               Grid.Row="2" Grid.Column="0"
+                               Foreground="White"
+                               HorizontalAlignment="Left" VerticalAlignment="Center"
+                               CharacterSpacing="40"
+                               FontWeight="SemiLight"
+                               Margin="12,5,5,5"
+                               FontSize="16"></TextBlock>
+                    </Grid>
+                    
+                    <!--GSR-->
+                    <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="GALVANIC SKIN RESPONSE"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Margin="0,18,0,5"
+                                   Grid.Row="0"
+                                   FontSize="13"
+                                   Foreground="White"></TextBlock>
+                        <Rectangle Fill="Red" Grid.Row="1"
+                                   Height="25"
+                                   RadiusX="20" RadiusY="20"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                                   Margin="20,5,20,5"></Rectangle>
+                    </Grid>
                 </Grid>
             </Grid>
         </ScrollViewer>

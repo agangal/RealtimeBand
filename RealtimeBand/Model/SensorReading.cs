@@ -58,5 +58,12 @@ namespace RealtimeBand.Model
             get { return _currentMotion; }
             set { _currentMotion = value; }
         }
+
+        private static int _ambientLight;
+        public static int AmbientLight
+        {
+            get { return _ambientLight; }
+            set { _ambientLight = value; }
+        }
     }
 }
