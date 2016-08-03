@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
 
 // The Templated Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234235
 
@@ -90,7 +91,14 @@ namespace BarControl
 
         protected override void OnApplyTemplate()
         {
-            var container = this.GetTemplateChild(ContainerPartName)
+            var container = this.GetTemplateChild(ContainerPartName) as Path;
+            _root = container.GetVisual();
+            _compositor = _root.Compositor;
+            SpriteVisual bar;
+            bar = _compositor.CreateSpriteVisual();
+            bar.Size = new System.Numerics.Vector2(100, 50);
+            bar.Brush = _compositor.CreateColorBrush(Color.FromArgb(130, 245, 43, 1));
+            _root.Children.InsertAtTop(bar);
             base.OnApplyTemplate();
         }
 

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Composition;
 using Windows.UI.Xaml.Hosting;
+using System.Windows;
+using Windows.UI.Xaml;
 
 namespace BarControl
 {
